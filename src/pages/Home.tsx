@@ -8,8 +8,9 @@ import {
   FlatList,
 } from 'react-native';
 import SkillCard from '../components/SkillCard';
+import colors from '../theme/colors';
 
-import Button from './../components/Button';
+import Button from '../components/Button';
 
 export default function Home() {
   const [user, setUser] = useState({
@@ -49,7 +50,7 @@ export default function Home() {
           value={newSkill}
           style={styles.input}
           placeholder="New Skill"
-          placeholderTextColor="#555"
+          placeholderTextColor={colors.text.dark}
           onChangeText={setNewSkill}
         />
         <Button onPress={handleAddSkill} />
@@ -67,24 +68,24 @@ export default function Home() {
 
 const styles = StyleSheet.create({
   safeArea: {
-    backgroundColor: '#121015',
+    backgroundColor: colors.background.default,
     flex: 1,
   },
   container: {
     flex: 1,
-    backgroundColor: '#121015',
+    backgroundColor: colors.background.default,
     alignItems: 'center',
     padding: 32,
   },
   title: {
-    color: '#fff',
+    color: colors.text.default,
     fontSize: 24,
     fontWeight: 'bold',
     alignSelf: 'flex-start',
   },
   input: {
-    color: '#fff',
-    backgroundColor: '#1f1e25',
+    color: colors.text.default,
+    backgroundColor: colors.secondary.light,
     fontSize: 16,
     padding: 14,
     marginTop: 30,
@@ -93,7 +94,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   listTitle: {
-    color: '#fff',
+    color: colors.text.default,
     fontSize: 24,
     fontWeight: 'bold',
     alignSelf: 'flex-start',
@@ -104,7 +105,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   greeting: {
-    color: '#fff',
+    color: colors.text.default,
     fontSize: 10,
     alignSelf: 'flex-start',
     marginTop: 2,

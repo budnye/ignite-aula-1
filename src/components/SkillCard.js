@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-
-// import { Container } from './styles';
+import colors from '../theme/colors';
 
 export default function SkillCard({ skill }) {
   return (
@@ -13,7 +12,7 @@ export default function SkillCard({ skill }) {
 
 const styles = StyleSheet.create({
   skillText: {
-    color: '#fff',
+    color: colors.text.dark,
     fontSize: 20,
     alignSelf: 'center',
     fontWeight: 'bold',
@@ -22,7 +21,7 @@ const styles = StyleSheet.create({
     marginVertical: 8,
     padding: 16,
     alignSelf: 'center',
-    backgroundColor: '#1f1e25',
+    backgroundColor: colors.primary.default,
     borderRadius: 27,
     width: '100%',
   },
