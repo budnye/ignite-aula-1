@@ -12,7 +12,7 @@ export default function SkillCard({ skill }) {
 
 const styles = StyleSheet.create({
   skillText: {
-    color: colors.text.dark,
+    color: colors.background,
     fontSize: 20,
     alignSelf: 'center',
     fontWeight: 'bold',
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     marginVertical: 8,
     padding: 16,
     alignSelf: 'center',
-    backgroundColor: colors.primary.default,
+    backgroundColor: colors.primary,
     borderRadius: 27,
     width: '100%',
   },

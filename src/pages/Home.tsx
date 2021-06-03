@@ -50,7 +50,7 @@ export default function Home() {
           value={newSkill}
           style={styles.input}
           placeholder="New Skill"
-          placeholderTextColor={colors.text.dark}
+          placeholderTextColor={colors.background}
           onChangeText={setNewSkill}
         />
         <Button onPress={handleAddSkill} />
@@ -68,24 +68,24 @@ export default function Home() {
 
 const styles = StyleSheet.create({
   safeArea: {
-    backgroundColor: colors.background.default,
+    backgroundColor: colors.background,
     flex: 1,
   },
   container: {
     flex: 1,
-    backgroundColor: colors.background.default,
+    backgroundColor: colors.background,
     alignItems: 'center',
     padding: 32,
   },
   title: {
-    color: colors.text.default,
+    color: colors.text,
     fontSize: 24,
     fontWeight: 'bold',
     alignSelf: 'flex-start',
   },
   input: {
-    color: colors.text.default,
-    backgroundColor: colors.secondary.light,
+    color: colors.text,
+    backgroundColor: colors.contrast,
     fontSize: 16,
     padding: 14,
     marginTop: 30,
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   listTitle: {
-    color: colors.text.default,
+    color: colors.text,
     fontSize: 24,
     fontWeight: 'bold',
     alignSelf: 'flex-start',
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   greeting: {
-    color: colors.text.default,
+    color: colors.text,
     fontSize: 10,
     alignSelf: 'flex-start',
     marginTop: 2,
