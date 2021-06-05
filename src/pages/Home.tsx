@@ -8,9 +8,13 @@ import {
   FlatList,
 } from 'react-native';
 import SkillCard from '../components/SkillCard';
+import Button from '../components/Button';
 import colors from '../theme/colors';
 
-import Button from '../components/Button';
+interface SkillData {
+  id: string;
+  name: string;
+}
 
 export default function Home() {
   const [user, setUser] = useState({
@@ -18,16 +22,27 @@ export default function Home() {
   });
 
   const [newSkill, setNewSkill] = useState('');
-  const [skills, setSkills] = useState([]);
-  const [greeting, setGreeting] = useState([]);
+  const [skills, setSkills] = useState<SkillData[]>([]);
+  const [greeting, setGreeting] = useState('Good morning');
 
   const handleAddSkill = () => {
+
     if (newSkill.length < 1) {
       return;
     }
-    setSkills(oldState => [newSkill, ...oldState]);
+    const data = {
+      id: String(new Date().getTime()),
+      name: newSkill
+    }
+    setSkills(oldState => [data, ...oldState]);
     setNewSkill('');
   };
+
+  const handleRemoveSkill = (id: string) => {
+    setSkills( oldState => oldState.filter(
+      skill => skill.id !== id
+    ))
+  }
 
   useEffect(() => {
     const timeNow = new Date().getHours();
@@ -53,13 +68,15 @@ export default function Home() {
           placeholderTextColor={colors.background}
           onChangeText={setNewSkill}
         />
-        <Button onPress={handleAddSkill} />
+
+        <Button onPress={handleAddSkill}  title="Add"/>
         <Text style={styles.listTitle}>My Skills</Text>
         <FlatList
           style={styles.list}
           data={skills}
-          renderItem={({ item }) => <SkillCard skill={item} />}
-          keyExtractor={(item, idx) => `id_${idx}`}
+          renderItem={({ item }) => <SkillCard skill={item.name} onPress={() => handleRemoveSkill(item.id)}/>}
+          keyExtractor={item => item.id}
+          showsVerticalScrollIndicator={false}
         />
       </View>
     </SafeAreaView>
